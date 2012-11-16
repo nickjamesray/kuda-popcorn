@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Kuda Project - HeliTest</title>
+        <script type="text/javascript" src="./Three.js">
+        </script>
+        <script type="text/javascript" src="./hemi.min.js">
+        </script>
+        <script type="text/javascript">
+        	var oldLoad = typeof window.onload === 'function' ? window.onload : null;
+
+			window.onload = function() {
+				if (oldLoad) {
+					oldLoad();
+				}
+
+				hemi.setErrorCallback(function(msg) {
+					alert('An error has occurred:\n' + msg + '\nDid you forget to copy a model to the assets directory?');
+				});
+				hemi.loadPath = './';
+				hemi.loadOctane('HeliTest.json');
+			};
+        </script>
+    </head>
+    <body>
+		<div id="kuda"></div>
+    </body>
+</html>
